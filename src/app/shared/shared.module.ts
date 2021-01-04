@@ -17,11 +17,13 @@ import {MatMenuModule} from '@angular/material/menu'
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
+import { PartsComponent } from '../parts/parts/parts.component';
+import { AvatarModule } from 'ngx-avatar';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [PartsComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -40,7 +42,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatMenuModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    AvatarModule
   ],
   exports: [
     MatToolbarModule,
@@ -59,7 +62,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatMenuModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatDividerModule
+    MatDividerModule,
+    AvatarModule
     
     
 
