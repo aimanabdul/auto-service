@@ -21,5 +21,6 @@ export class PartsComponent implements OnInit {
   }
 
  partName: String="Real Remschijf";
+ selected = 'option2';
 
 }

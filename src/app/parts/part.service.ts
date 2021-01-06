@@ -13,4 +13,6 @@ export class PartService {
   {
     return this.http.get<Part[]>("http://localhost:32008/parts/view");
   }
+
+  
 }

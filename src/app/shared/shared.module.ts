@@ -19,6 +19,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatDividerModule} from '@angular/material/divider';
 import { PartsComponent } from '../parts/parts/parts.component';
 import { AvatarModule } from 'ngx-avatar';
+import {MatSelectModule} from '@angular/material/select';
 
 
 
@@ -43,7 +44,8 @@ import { AvatarModule } from 'ngx-avatar';
     ReactiveFormsModule,
     MatTableModule,
     MatDividerModule,
-    AvatarModule
+    AvatarModule,
+    MatSelectModule
   ],
   exports: [
     MatToolbarModule,
@@ -63,7 +65,8 @@ import { AvatarModule } from 'ngx-avatar';
     ReactiveFormsModule,
     MatTableModule,
     MatDividerModule,
-    AvatarModule
+    AvatarModule,
+    MatSelectModule
     
     
 
