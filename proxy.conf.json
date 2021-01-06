@@ -1,0 +1,8 @@
+{
+  "*/*": {
+    "target": "http://localhost:31934",
+    "secure": false,
+    "changeOrigin": true
+}
+}
+

@@ -1,1 +1,42 @@
-<p>repairs works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col col-lg-12">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+              
+                 <!-- date Column -->
+                 <ng-container matColumnDef="date">
+                    <th mat-header-cell *matHeaderCellDef> Datum </th>
+                    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                  </ng-container>
+              
+                <!-- customer first name Column -->
+                <ng-container matColumnDef="customerFirstName">
+                  <th mat-header-cell *matHeaderCellDef> Voornaam </th>
+                  <td mat-cell *matCellDef="let element"> {{element.customerId}} </td>
+                </ng-container>
+              
+                <!-- customer last name Column -->
+                <!-- <ng-container matColumnDef="customerLastName">
+                  <th mat-header-cell *matHeaderCellDef> Familienaam </th>
+                  <td mat-cell *matCellDef="let element"> {{element.customer.lastName}} </td>
+                </ng-container> -->
+              
+                <!-- rapair type Column -->
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef> Type reparatie </th>
+                  <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+
+                <!-- action Column -->
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef> Actie </th>
+                    <td mat-cell > <a href="/">Details</a> </td>
+                  </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+        </div>
+    </div>
+</div>

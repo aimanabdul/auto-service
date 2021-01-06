@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Repair } from 'src/app/models/repair.model';
 
 @Component({
   selector: 'app-repairs',
@@ -11,5 +12,10 @@ export class RepairsComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  repairsList: Array<Repair> = []
+
+  displayedColumns: string[] = ['date', 'customerId', 'type', 'price', 'action'];
+  dataSource = this.repairsList;
 
 }
