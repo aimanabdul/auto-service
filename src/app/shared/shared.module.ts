@@ -20,11 +20,15 @@ import {MatDividerModule} from '@angular/material/divider';
 import { PartsComponent } from '../parts/parts/parts.component';
 import { AvatarModule } from 'ngx-avatar';
 import {MatSelectModule} from '@angular/material/select';
+import {CustomersComponent} from '../customers/customers/customers.component';
+import {EmployeesComponent} from '../employees/employees/employees.component';
+import {RepairsComponent} from '../repairs/repairs/repairs.component';
+
 
 
 
 @NgModule({
-  declarations: [PartsComponent],
+  declarations: [PartsComponent, CustomersComponent, EmployeesComponent, RepairsComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -45,7 +49,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatDividerModule,
     AvatarModule,
-    MatSelectModule
+    MatSelectModule,
+    
   ],
   exports: [
     MatToolbarModule,
@@ -66,7 +71,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatDividerModule,
     AvatarModule,
-    MatSelectModule
+    MatSelectModule,
+    
     
     
 

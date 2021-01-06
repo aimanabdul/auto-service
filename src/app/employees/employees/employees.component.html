@@ -1,1 +1,61 @@
-<p>employees works!</p>
+<div class="container">
+    <div class="row mt-3">
+        <div class="col col-lg-12 ">
+            <h1 class="d-flex justify-content-center">Medewerkers Dashboard</h1>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="position">
+              <th mat-header-cell *matHeaderCellDef> No. </th>
+              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+            </ng-container>
+          
+            <!-- first name Column -->
+            <ng-container matColumnDef="firstName">
+              <th mat-header-cell *matHeaderCellDef> Voornaam </th>
+              <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+            </ng-container>
+          
+            <!-- last name Column -->
+            <ng-container matColumnDef="lastName">
+              <th mat-header-cell *matHeaderCellDef> Familienaam </th>
+              <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+            </ng-container>
+    
+            <!-- phone number Column -->
+            <ng-container matColumnDef="workFunction">
+                <th mat-header-cell *matHeaderCellDef> Functie </th>
+                <td mat-cell *matCellDef="let element"> {{element.workFunction.functionName}} </td>
+              </ng-container>
+          
+            <!-- phone number Column -->
+            <ng-container matColumnDef="phoneNumber">
+              <th mat-header-cell *matHeaderCellDef> Telefoonnummer </th>
+              <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+            </ng-container>
+    
+             <!-- start contract Column -->
+            <ng-container matColumnDef="startContract">
+            <th mat-header-cell *matHeaderCellDef> startdatum </th>
+            <td mat-cell *matCellDef="let element"> {{element.startContract | date}} </td>
+            </ng-container>
+    
+            <!-- end contract Column -->
+            <ng-container matColumnDef="endContract">
+                <th mat-header-cell *matHeaderCellDef> stopdatum </th>
+                <td mat-cell *matCellDef="let element"> {{element.endContract | date}} </td>
+              </ng-container>
+          
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </div>
+    
+</div>
