@@ -40,9 +40,9 @@ export class EmployeesComponent implements OnInit {
   // some lists
   workingHoursList: Array<WorkingHours> = [];
   employeesList: Array<Employee> = [];
-  //Init dommie function
+  //Init dummie function
   function: WorkFunction = new WorkFunction(1, "employee")
-  //add some dommie employees
+  //add some dummie employees
   employee1: Employee = new Employee(1, this.workingHoursList, this.function, "Jaden", "Henderick", "0465874596", new Date('2020-11-01T08:30:00'), new Date('2021-12-01T00:00:00'), true, "E54896214");
   employee2: Employee = new Employee(2, this.workingHoursList, this.function, "Jasmien", "De smet", "0485964585", new Date('2019-04-24T00:00:00'), new Date('2022-12-23T00:00:00'), true, "E54896247");
   employee3: Employee = new Employee(3, this.workingHoursList, this.function, "Luk", "Willems", "0485479632", new Date('2015-11-01T00:00:00'), new Date('2021-12-01T00:00:00'), true, "E54896244");
