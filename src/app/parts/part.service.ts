@@ -16,7 +16,7 @@ export class PartService {
   getParts(): Observable<Part[]>
   {
     
-    return this.http.get<Part[]>("http://localhost:31934/parts/view");
+    return this.http.get<Part[]>("http://localhost:31934/parts/view", {headers: new HttpHeaders().set("Access-Control-Allow-Origin", "*" )});
   }
 
   

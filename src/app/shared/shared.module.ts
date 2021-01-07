@@ -23,12 +23,15 @@ import {MatSelectModule} from '@angular/material/select';
 import {CustomersComponent} from '../customers/customers/customers.component';
 import {EmployeesComponent} from '../employees/employees/employees.component';
 import {RepairsComponent} from '../repairs/repairs/repairs.component';
+import {AddRepairComponent} from '../repairs/add-repair/add-repair.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {AddPartComponent} from '../parts/add-part/add-part.component';
 
 
 
 
 @NgModule({
-  declarations: [PartsComponent, CustomersComponent, EmployeesComponent, RepairsComponent],
+  declarations: [PartsComponent, CustomersComponent, EmployeesComponent, RepairsComponent, AddRepairComponent, AddPartComponent],
   imports: [
     CommonModule,
     MatToolbarModule,
@@ -50,6 +53,7 @@ import {RepairsComponent} from '../repairs/repairs/repairs.component';
     MatDividerModule,
     AvatarModule,
     MatSelectModule,
+    MatDatepickerModule
     
   ],
   exports: [
@@ -72,6 +76,7 @@ import {RepairsComponent} from '../repairs/repairs/repairs.component';
     MatDividerModule,
     AvatarModule,
     MatSelectModule,
+    MatDatepickerModule
     
     
     
