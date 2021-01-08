@@ -26,12 +26,23 @@ import {RepairsComponent} from '../repairs/repairs/repairs.component';
 import {AddRepairComponent} from '../repairs/add-repair/add-repair.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AddPartComponent} from '../parts/add-part/add-part.component';
+import {AddCustomerComponent} from '../customers/add-customer/add-customer.component';
 
 
 
 
 @NgModule({
-  declarations: [PartsComponent, CustomersComponent, EmployeesComponent, RepairsComponent, AddRepairComponent, AddPartComponent],
+  declarations: [
+    PartsComponent, 
+    CustomersComponent, 
+    EmployeesComponent, 
+    RepairsComponent, 
+    AddRepairComponent, 
+    AddPartComponent, 
+    AddCustomerComponent
+  
+  
+  ],
   imports: [
     CommonModule,
     MatToolbarModule,

@@ -10,13 +10,16 @@ export class PartService {
 
   constructor(private http: HttpClient) { }
 
-
-
-  
   getParts(): Observable<Part[]>
   {
     
-    return this.http.get<Part[]>("http://localhost:31934/parts/view", {headers: new HttpHeaders().set("Access-Control-Allow-Origin", "*" )});
+    return this.http.get<Part[]>("http://localhost:30162/parts");
+  }
+
+  
+  postPart(part: Part)
+  {
+    return this.http.post<Part[]>("http://localhost:30162/parts", part);
   }
 
   

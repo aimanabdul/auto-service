@@ -12,12 +12,12 @@ export class EmployeeService {
 
   getEmployees(): Observable<Employee[]>
   {
-    return this.http.get<Employee[]>("http://localhost:32008/employees")
+    return this.http.get<Employee[]>("http://localhost:30162/employees")
   }
 
   getEmployeeByID(employeeID: number): Observable<Employee>
   {
-    return this.http.get<Employee>("http://localhost:32008/employees/" + employeeID)
+    return this.http.get<Employee>("http://localhost:30162/employees/" + employeeID)
   }
 
 

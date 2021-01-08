@@ -4,50 +4,53 @@
             <h1 class="d-flex justify-content-center">Medewerkers Overzicht</h1>
         </div>
     </div>
-    <div class="row mt-3">
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+   <!--employees table-->
+   <div class="row mt-3">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- employee Column -->
+      <ng-container matColumnDef="employee">
+        <th mat-header-cell *matHeaderCellDef> Medewerker </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} &nbsp; {{element.lastName}}</td>
+      </ng-container>
+
+      <!-- work functioin Column -->
+      <ng-container matColumnDef="workFunction">
+          <th mat-header-cell *matHeaderCellDef> Functie </th>
+          <td mat-cell *matCellDef="let element"> {{element.function.functionName}} </td>
+        </ng-container>
     
-          
-          <!-- first name Column -->
-          <ng-container matColumnDef="firstName">
-            <th mat-header-cell *matHeaderCellDef> Voornaam </th>
-            <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
-          </ng-container>
-        
-          <!-- last name Column -->
-          <ng-container matColumnDef="lastName">
-            <th mat-header-cell *matHeaderCellDef> Familienaam </th>
-            <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
-          </ng-container>
-  
-          <!-- phone number Column -->
-          <ng-container matColumnDef="workFunction">
-              <th mat-header-cell *matHeaderCellDef> Functie </th>
-              <td mat-cell *matCellDef="let element"> {{element.workFunction.functionName}} </td>
+      <!-- phone number Column -->
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Telefoonnummer </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+      </ng-container>
+
+        <!-- start contract Column -->
+      <ng-container matColumnDef="startContract">
+      <th mat-header-cell *matHeaderCellDef> startdatum </th>
+      <td mat-cell *matCellDef="let element"> {{element.startContract | date}} </td>
+      </ng-container>
+
+      <!-- end contract Column -->
+      <ng-container matColumnDef="endContract">
+          <th mat-header-cell *matHeaderCellDef> stopdatum </th>
+          <td mat-cell *matCellDef="let element"> 
+            <ng-container *ngIf="element.endContract">
+              {{element.endContract}
             </ng-container>
-        
-          <!-- phone number Column -->
-          <ng-container matColumnDef="phoneNumber">
-            <th mat-header-cell *matHeaderCellDef> Telefoonnummer </th>
-            <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
-          </ng-container>
-  
-            <!-- start contract Column -->
-          <ng-container matColumnDef="startContract">
-          <th mat-header-cell *matHeaderCellDef> startdatum </th>
-          <td mat-cell *matCellDef="let element"> {{element.startContract | date}} </td>
-          </ng-container>
-  
-          <!-- end contract Column -->
-          <ng-container matColumnDef="endContract">
-              <th mat-header-cell *matHeaderCellDef> stopdatum </th>
-              <td mat-cell *matCellDef="let element"> {{element.endContract | date}} </td>
+            <ng-container *ngIf="!element.endContract">
+              Niet bepaald
             </ng-container>
-        
-  
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-    </div>
+          </td>
+         
+         
+        </ng-container>
+    
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>
+ 
     
 </div>

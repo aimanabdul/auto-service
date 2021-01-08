@@ -1,1 +1,56 @@
-<p>customers works!</p>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col col-sl-12"><h1 class="d-flex justify-content-center">Klanten Overzicht</h1></div>
+  </div>
+  <!-- Add customer -->
+  <div class="row mt-3">
+    <div class="col col-sm-12">
+      <button mat-flat-button class="success" (click)="navToAdd()">Nieuwe Klant</button>
+    </div>
+  </div>
+
+ <!--customers table-->
+ <div class="row mt-3">
+  <div class="col col-lg-12 col-sm-12">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- customer Column -->
+      <ng-container matColumnDef="customer">
+        <th mat-header-cell *matHeaderCellDef> Klant </th>
+        <td mat-cell *matCellDef="let element"> {{element.firstName}} &nbsp; {{element.lastName}}</td>
+      </ng-container>
+
+      <!-- email Column -->
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Emailadres </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+    
+      <!-- phone number Column -->
+      <ng-container matColumnDef="phoneNumber">
+        <th mat-header-cell *matHeaderCellDef> Telefoon </th>
+        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+      </ng-container>
+
+      <!-- license plate Column -->
+      <ng-container matColumnDef="licensePlate">
+        <th mat-header-cell *matHeaderCellDef> Kenteken </th>
+        <td mat-cell *matCellDef="let element"> {{element.licensePlate}} </td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actie </th>
+        <td mat-cell *matCellDef="let element"> <span>Actie</span> </td>
+      </ng-container>
+
+      
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  </div>
+</div>
+  
+  
+  
+</div>

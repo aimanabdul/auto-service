@@ -12,7 +12,7 @@ export class CustomerService {
 
   getCustomers(): Observable<Customer[]>
   {
-    return this.http.get<Customer[]>("http://localhost:32008/customers")
+    return this.http.get<Customer[]>("http://localhost:30162/customers")
   }
 
   getCustomerByLicensePlate(licensePlate: string): Observable<Customer>

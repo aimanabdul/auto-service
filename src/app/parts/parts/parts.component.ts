@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {PartService} from '../part.service';
 import {Part} from '../../models/part.model';
-import { NgForm } from '@angular/forms';
 import {Router} from "@angular/router";
+import { ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { FormBuilder } from '@angular/forms';
+
 
 
 @Component({
@@ -12,35 +17,53 @@ import {Router} from "@angular/router";
 })
 export class PartsComponent implements OnInit {
 
-  parts?: Part[];
-  constructor(private _partService: PartService, private router: Router)
+ parts: Array<Part> = [];
+ //table
+ displayedColumns: string[] = ['name', 'eannumber', 'description', 'price'];
+ dataSource = new MatTableDataSource<Part>();
+ @ViewChild(MatPaginator) paginator!: MatPaginator;
+ @ViewChild(MatSort) sort!: MatSort;
+
+ category = 'option2';
+
+ searchForm = this.fb.group({
+    category: [''],
+   
+ 
+  })
+
+  constructor(private _partService: PartService, private router: Router, private fb: FormBuilder)
   { 
-    this._partService.getParts().subscribe(result => {this.parts = result});
-    console.log(this.parts)
+    this.getParts();
   }
 
   ngOnInit(): void {
+    
   }
 
- partName: String="Real Remschijf";
- selected = 'option2';
- partsList: Array<Part> = [];
+ 
+  getParts()
+  {
+    this._partService.getParts().subscribe(
+      result => {
+        // result.forEach(p=> {
+        //   this._partService.ge
+        // });
+        this.parts = result;
+        this.dataSource = new MatTableDataSource(this.parts); 
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        
+      } 
+    );
+    
+  }
 
- //get categories voor searchForm
- getCategories()
- {
-
- }
-
- //table
- displayedColumns: string[] = ['name', 'description', 'eanNumber', 'price', 'category'];
- dataSource = this.partsList;
-
-  submitted: boolean = false;
-  CategoryModel?: Part;
 
   //find parts with given categoryID
-  onSubmit(f: NgForm)
+  submitted: boolean = false;
+  CategoryModel?: Part;
+  onSubmit()
   {
     
     //partModel.date = f.value.date;
@@ -51,7 +74,6 @@ export class PartsComponent implements OnInit {
   navToAdd()
   {
     this.router.navigate(["/parts/add"]);
-   
   }
 
 

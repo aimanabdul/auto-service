@@ -7,20 +7,19 @@
 
   <!-- Find repair by date -->
   <div class="row mt-3">
-    <form #findRepairsForm="ngForm" (ngSubmit)="onSubmit(findRepairsForm)" class="m-auto">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="m-auto">
         <div class="col col-sm-12">
             <mat-form-field appearance="standard">
                 <mat-label>Zoek reparatie op datum</mat-label>
-                <input matInput type="dateTime" ngModel placeholder="21/10/2020"   name="date">
+                <input matInput type="date" ngModel placeholder="21/10/2020"   name="date">
             </mat-form-field>
+            <button mat-raised-button class="ml-3" color="primary" type="submit">Zoeken</button>
         </div>
-        <div class="col col-sm-12 d-flex justify-content-center">
-          <button mat-raised-button color="primary" type="submit" [disabled]="!findRepairsForm.form.valid">Zoeken</button>
-      </div>
+        
     </form>
     </div>
 
-    <!-- Add Repair -->
+  <!-- Add Repair -->
   <div class="row mt-3">
     <div class="col col-sm-12">
       <button mat-flat-button class="success" (click)="navToAdd()">Nieuwe Repaaratie</button>

@@ -7,25 +7,35 @@ import {EmployeesComponent} from './employees/employees/employees.component';
 import {RepairDetailsComponent} from './repairs/repair-details/repair-details.component';
 import {AddRepairComponent} from './repairs/add-repair/add-repair.component';
 import {AddPartComponent} from './parts/add-part/add-part.component';
+import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
 
 
 
 const routes: Routes = [
   { path: 'parts', 
-  children:[
-    { path: 'overview', component: PartsComponent},
-    { path: 'add', component: AddPartComponent},
-  ]
+    children:[
+      { path: 'overview', component: PartsComponent},
+      { path: 'add', component: AddPartComponent},
+    ]
   },
   { path: 'repairs',
-  children: [
-    { path: 'overview', component: RepairsComponent},
-    { path: 'repair', component: RepairDetailsComponent},
-    { path: 'add', component: AddRepairComponent}
-  ]
+    children: [
+      { path: 'overview', component: RepairsComponent},
+      { path: 'repair', component: RepairDetailsComponent},
+      { path: 'add', component: AddRepairComponent}
+    ]
   },
-  { path: 'customers', component: CustomersComponent },
-  { path: 'employees', component: EmployeesComponent },
+  { path: 'customers', 
+    children: [
+      { path: 'overview', component: CustomersComponent},
+      { path: 'add', component: AddCustomerComponent},
+    ]
+  },
+  { path: 'employees', 
+    children: [
+      { path: 'overview', component: EmployeesComponent},
+    ]
+  },
 ];
 
 @NgModule({

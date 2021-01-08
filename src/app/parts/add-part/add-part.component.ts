@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Category } from 'src/app/models/category.model';
 import { Part } from 'src/app/models/part.model';
+import {Router} from "@angular/router";
+import { PartService } from '../part.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-part',
@@ -10,27 +13,34 @@ import { Part } from 'src/app/models/part.model';
 })
 export class AddPartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private _partService: PartService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
+  addForm = this.fb.group({
+    name: [''],
+    description: [''],
+    eanNumber: [''],
+    price: [''],
+    categoryID: [''],
+   
+  })
+
   categoriesList?: Array<Category>[]
-  //get categories
   getCategories()
   {
     //api call 
 
-    
   }
 
-  partModel?: Part;
+ 
   submitted: boolean = false;
-  onSubmit(f: NgForm)
+  onSubmit()
   {
     this.submitted = true;
-    // add date to model object
-    //this.repairModel.data = f.value.date;
+    this._partService.postPart(this.addForm.value).subscribe();
+    this.router.navigate(["/parts/overview"]);
     //api call
   }
 
