@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row mt-3">
+        <div class="col col-lg-12 d-flex justify-content-center">
+            <h1>Klant Details</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-12">
+            <h2>Klant</h2>  
+            <p><span class="font-weight-bold">Klant: </span>{{customer.firstName}} &nbsp; {{customer.lastName}}</p>
+            <p><span class="font-weight-bold">Gsmnummer: </span>{{customer.phoneNumber}}</p>
+            <p><span class="font-weight-bold">Email: </span>{{customer.email}}</p>
+            <p><span class="font-weight-bold">Kenteken: </span>{{customer.licensePlate}}</p>
+            <p><span class="font-weight-bold">Automerk: </span>{{customer.carBrand}}</p>
+            <p><span class="font-weight-bold">Automodel: </span>{{customer.carModel}}</p>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="row mt-3">
+        <div class="col col-lg-12">
+            <h2 class="d-flex justify-content-center">Reparaties</h2>  
+        </div>
+         <!-- Add repair -->
+        <div class="col col-sm-12">
+          <div class="col col-sm-12">
+            <button mat-flat-button class="success" (click)="navToAdd()">Nieuw Repair</button>
+          </div>
+        </div>
+        
+        <!--repairs table-->
+        <div class="col col-sm-12 mt-3">
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!-- date Column -->
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef> Datum </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date | date}}</td>
+                </ng-container>
+          
+                <!-- type Column -->
+                <ng-container matColumnDef="type">
+                  <th mat-header-cell *matHeaderCellDef> Type reparatie </th>
+                  <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                </ng-container>
+              
+                <!-- description Column -->
+                <ng-container matColumnDef="description">
+                  <th mat-header-cell *matHeaderCellDef> Omschrijving </th>
+                  <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+          
+                <!-- price Column -->
+                <ng-container matColumnDef="price">
+                  <th mat-header-cell *matHeaderCellDef> Prijs </th>
+                  <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+                </ng-container>
+          
+                <!-- Actions Column -->
+                <ng-container matColumnDef="actions">
+                  <th mat-header-cell *matHeaderCellDef> Actie </th>
+                  <td mat-cell *matCellDef="let element"> 
+                    <ng-container><a mat-button (click)="showRepairDetail(element)"><span class="material-icons">launch</span></a></ng-container>
+                  </td>
+                </ng-container>
+          
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+        </div>
+    </div>
+</div>

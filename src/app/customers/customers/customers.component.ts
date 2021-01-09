@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , Input} from '@angular/core';
 import { Customer } from 'src/app/models/customer.model';
 import {Router} from "@angular/router";
 import { ViewChild } from '@angular/core';
@@ -20,6 +20,8 @@ export class CustomersComponent implements OnInit {
   dataSource = new MatTableDataSource<Customer>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+ 
+
 
 
   constructor(private router: Router, private _customerService: CustomerService) 
@@ -49,6 +51,12 @@ export class CustomersComponent implements OnInit {
   {
     this.router.navigate(["/customers/add"]);
    
+  }
+
+  showCustomerDetail(id: string, customer: Customer)
+  {
+    this.router.navigate(['/customers/detail', id, {customer: JSON.stringify(customer)}], {skipLocationChange: true});
+    
   }
 
 

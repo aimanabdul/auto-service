@@ -3,7 +3,7 @@ export class Customer {
     constructor(
         public id?: number,
         public uuid?: string,
-        public lincensePlate?: string,
+        public licensePlate?: string,
         public firstName?: string,
         public lastName?: string,
         public email?: string,

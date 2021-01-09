@@ -8,6 +8,8 @@ import {RepairDetailsComponent} from './repairs/repair-details/repair-details.co
 import {AddRepairComponent} from './repairs/add-repair/add-repair.component';
 import {AddPartComponent} from './parts/add-part/add-part.component';
 import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
+import {CustomerDetailComponent} from './customers/customer-detail/customer-detail.component';
+import {CustomerRepairComponent} from './customers/customer-repair/customer-repair.component';
 
 
 
@@ -29,6 +31,8 @@ const routes: Routes = [
     children: [
       { path: 'overview', component: CustomersComponent},
       { path: 'add', component: AddCustomerComponent},
+      { path: 'detail/:id', component: CustomerDetailComponent},
+      { path: 'repair', component: CustomerRepairComponent},
     ]
   },
   { path: 'employees', 
@@ -36,6 +40,7 @@ const routes: Routes = [
       { path: 'overview', component: EmployeesComponent},
     ]
   },
+  //{ path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
 @NgModule({

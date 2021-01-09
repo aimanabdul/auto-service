@@ -27,6 +27,8 @@ import {AddRepairComponent} from '../repairs/add-repair/add-repair.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {AddPartComponent} from '../parts/add-part/add-part.component';
 import {AddCustomerComponent} from '../customers/add-customer/add-customer.component';
+import {CustomerDetailComponent} from '../customers/customer-detail/customer-detail.component';
+import {CustomerRepairComponent} from '../customers/customer-repair/customer-repair.component';
 
 
 
@@ -39,7 +41,9 @@ import {AddCustomerComponent} from '../customers/add-customer/add-customer.compo
     RepairsComponent, 
     AddRepairComponent, 
     AddPartComponent, 
-    AddCustomerComponent
+    AddCustomerComponent,
+    CustomerDetailComponent,
+    CustomerRepairComponent
   
   
   ],
