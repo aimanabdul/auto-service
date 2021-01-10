@@ -11,7 +11,7 @@
         <div class="col col-sm-12">
             <mat-form-field appearance="standard">
                 <mat-label>Zoek reparatie op datum</mat-label>
-                <input matInput type="date" ngModel placeholder="21/10/2020"   name="date">
+                <input matInput type="date"  placeholder="21/10/2020"   name="date">
             </mat-form-field>
             <button mat-raised-button class="ml-3" color="primary" type="submit">Zoeken</button>
         </div>
@@ -31,48 +31,50 @@
   <div class="row mt-3">
       <div class="col col-lg-12 col-sm-12">
           <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+            <!-- date Column -->
+            <ng-container matColumnDef="date">
+              <th mat-header-cell *matHeaderCellDef> Datum </th>
+              <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+            </ng-container>
+          
+            <!-- customer first name Column -->
+            <ng-container matColumnDef="customerId">
+              <th mat-header-cell *matHeaderCellDef> Voornaam </th>
+              <td mat-cell *matCellDef="let element"> {{element.customerId}} </td>
+            </ng-container>
+          
+            <!-- customer last name Column -->
+            <!-- <ng-container matColumnDef="customerLastName">
+              <th mat-header-cell *matHeaderCellDef> Familienaam </th>
+              <td mat-cell *matCellDef="let element"> {{element.customer.lastName}} </td>
+            </ng-container> -->
+          
+            <!-- rapair type Column -->
+            <ng-container matColumnDef="type">
+              <th mat-header-cell *matHeaderCellDef> Type reparatie </th>
+              <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+            </ng-container>
 
-            
-                <!-- date Column -->
-                <ng-container matColumnDef="date">
-                  <th mat-header-cell *matHeaderCellDef> Datum </th>
-                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
-                </ng-container>
-            
-              <!-- customer first name Column -->
-              <ng-container matColumnDef="customerId">
-                <th mat-header-cell *matHeaderCellDef> Voornaam </th>
-                <td mat-cell *matCellDef="let element"> {{element.customerId}} </td>
+              <!-- price Column -->
+              <ng-container matColumnDef="price">
+              <th mat-header-cell *matHeaderCellDef> Prijs </th>
+              <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+            </ng-container>
+
+
+            <!-- actions Column -->
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> Actie </th>
+                <td mat-cell  *matCellDef="let element">
+                  <a mat-button  (click)="navToEdit(element)"><span class="material-icons">edit</span></a> &nbsp;
+                  <a mat-button (click)="deleteRepair(element.customerId, element.date)"><span class="material-icons danger">delete</span></a>
+
+                </td>
               </ng-container>
-            
-              <!-- customer last name Column -->
-              <!-- <ng-container matColumnDef="customerLastName">
-                <th mat-header-cell *matHeaderCellDef> Familienaam </th>
-                <td mat-cell *matCellDef="let element"> {{element.customer.lastName}} </td>
-              </ng-container> -->
-            
-              <!-- rapair type Column -->
-              <ng-container matColumnDef="type">
-                <th mat-header-cell *matHeaderCellDef> Type reparatie </th>
-                <td mat-cell *matCellDef="let element"> {{element.type}} </td>
-              </ng-container>
-
-                <!-- price Column -->
-                <ng-container matColumnDef="price">
-                <th mat-header-cell *matHeaderCellDef> Prijs </th>
-                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
-              </ng-container>
-
-
-              <!-- action Column -->
-              <ng-container matColumnDef="action">
-                  <th mat-header-cell *matHeaderCellDef> Actie </th>
-                  <td mat-cell > <a href="/"><button mat-button color="primary">Details</button></a></td>
-                </ng-container>
-            
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
       </div>
   </div>
   <div class="row mt-3 d-flex justify-content-center">

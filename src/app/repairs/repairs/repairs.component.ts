@@ -16,10 +16,13 @@ import { DatePipe } from '@angular/common';
 })
 export class RepairsComponent implements OnInit {
 
-  repairsList: Array<Repair> = [];
-  //table
-  displayedColumns: string[] = ['date', 'customerId', 'type', 'price', 'action'];
-  dataSource = this.repairsList;
+  repairs: Array<Repair> = [];
+  displayedColumns: string[] = ['date', 'customerId', 'type', 'price', 'actions'];
+  dataSource = new MatTableDataSource<Repair>();
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+  currentDate: string = "10/01/2020";
+
 
   searchForm = this.fb.group({
     date: [this.datePipe.transform('')],
@@ -27,15 +30,31 @@ export class RepairsComponent implements OnInit {
  
   })
 
-  constructor(private router: Router, private _repairService: RepairService, private fb: FormBuilder, private datePipe: DatePipe) { }
+  constructor(
+    private router: Router, 
+    private _repairService: RepairService, 
+    private fb: FormBuilder, 
+    private datePipe: DatePipe
+  ) 
+  { 
+
+  }
 
   ngOnInit(): void {
-    
+    this.getRepairs();
   }
 
   getRepairs()
   {
-    
+    this._repairService.getRepairsByDate(this.currentDate).subscribe(
+      result => {
+        this.repairs = result;
+        this.dataSource = new MatTableDataSource(this.repairs); 
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        console.log(this.repairs)
+      }
+    );
   }
   navToDetails(): void
   {
@@ -55,6 +74,16 @@ export class RepairsComponent implements OnInit {
   {
     this.submitted = true;
 
+  }
+
+  deleteRepair(customerID: string, date: string)
+  {
+    return this._repairService.deleteRepair(customerID, date).subscribe();
+  }
+
+  navToEdit(repair: Repair)
+  {
+    this.router.navigate(["/repairs/add"]);
   }
 
 }
