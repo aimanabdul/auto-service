@@ -13,13 +13,18 @@ export class PartService {
   getParts(): Observable<Part[]>
   {
     
-    return this.http.get<Part[]>("http://localhost:30162/parts");
+    return this.http.get<Part[]>("http://localhost:30946/parts");
   }
 
   
   postPart(part: Part)
   {
-    return this.http.post<Part[]>("http://localhost:30162/parts", part);
+    return this.http.post<Part[]>("http://localhost:30946/parts", part);
+  }
+
+  getCategories()
+  {
+    return this.http.get<Part[]>("http://localhost:30946/parts/categories");
   }
 
   

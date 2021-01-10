@@ -12,28 +12,28 @@ export class CustomerService {
 
   getCustomers(): Observable<Customer[]>
   {
-    return this.http.get<Customer[]>("http://localhost:30162/customers")
+    return this.http.get<Customer[]>("http://localhost:30946/customers")
   }
 
   getCustomerByLicensePlate(licensePlate: string): Observable<Customer>
   {
-    return this.http.get<Customer>("http://localhost:32008/customer/licenseplate/" + licensePlate)
+    return this.http.get<Customer>("http://localhost:30946/customer/licenseplate/" + licensePlate)
   }
 
   getCustomerByPhoneNumber(phoneNumber: string): Observable<Customer>
   {
-    return this.http.get<Customer>("http://localhost:32008/customer/phonenumber/" + phoneNumber)
+    return this.http.get<Customer>("http://localhost:30946/customer/phonenumber/" + phoneNumber)
   }
 
 
   getCustomerByEmail(email: string): Observable<Customer>
   {
-    return this.http.get<Customer>("http://localhost:32008/customer/email/" + email)
+    return this.http.get<Customer>("http://localhost:30946/customer/email/" + email)
   }
 
   getCustomerByUuid(uuid: string): Observable<Customer>
   {
-    return this.http.get<Customer>("http://localhost:32008/customer/uuid/" + uuid)
+    return this.http.get<Customer>("http://localhost:30946/customer/uuid/" + uuid)
   }
 
 

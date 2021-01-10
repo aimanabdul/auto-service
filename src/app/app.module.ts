@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './shared/shared.module';
+import {SecurityModule} from './security/security.module'
+import {APP_BASE_HREF} from '@angular/common';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    SecurityModule
   ],
-  providers: [],
+  providers:[{provide: APP_BASE_HREF, useValue: 'http://localhost:4200/'}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

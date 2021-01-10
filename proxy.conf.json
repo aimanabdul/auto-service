@@ -1,6 +1,6 @@
 {
   "*/*": {
-    "target": "http://localhost:30162",
+    "target": "http://localhost:31610",
     "secure": false,
     "changeOrigin": true
 }

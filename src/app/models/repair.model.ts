@@ -6,7 +6,7 @@ export class Repair {
         public employeeId?: string,
         public type?: string,
         public price?: number,
-        public date?: Date ,
+        public date?: string ,
         public description?: string,
         public  parts?: number[] ,
 

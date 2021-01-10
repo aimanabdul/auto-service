@@ -17,7 +17,8 @@ import { CustomerService } from '../customer.service';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  id!: string;
+  id: string = "";
+  uuid: string = "";
   customer: Customer = new Customer();
   repairs: Array<Repair> = [];
   //table
@@ -33,9 +34,10 @@ export class CustomerDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.uuid = this.route.snapshot.params['uuid'];
     this.customer = JSON.parse(this.route.snapshot.params['customer']);
     this.getRepairsByCustomerId(this.id)
-    console.log(this.id)
+    
     
   }
 
@@ -59,7 +61,7 @@ export class CustomerDetailComponent implements OnInit {
 
  navToAdd()
  {
-   this.router.navigate(["/repairs/add"]);
+   this.router.navigate(["/repairs/add/" , JSON.stringify(this.uuid) ], {skipLocationChange: true});
  }
 
   

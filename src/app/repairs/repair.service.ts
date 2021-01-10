@@ -32,22 +32,22 @@ export class RepairService {
 
   getRepairsByDate(date: string): Observable<Repair[]>
   {
-    return this.http.get<Repair[]>("http://localhost:30622/repairs/date/" + date)
+    return this.http.get<Repair[]>("http://localhost:30946/repairs/date/" + date)
   }
 
   addRepair(repair: Repair): Observable<Repair>
   {
-    return this.http.post<Repair>("http://localhost:30622/repairs" , repair)
+    return this.http.post<Repair>("http://localhost:30946/repairs" , repair)
   }
 
   updateRepair(repair: Repair): Observable<Repair>
   {
-    return this.http.put<Repair>("http://localhost:30622/repairs" , repair)
+    return this.http.put<Repair>("http://localhost:30946/repairs" , repair)
   }
 
   deleteRepair(customerID: string, date: string): Observable<Repair>
   {
-    return this.http.delete<Repair>("http://localhost:30622/repairs/customer/" + customerID + "/date/" + date)
+    return this.http.delete<Repair>("http://localhost:30946/repairs/customer/" + customerID + "/date/" + date)
   }
 
 }

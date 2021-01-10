@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { FormBuilder } from '@angular/forms';
+import { Category } from 'src/app/models/category.model';
 
 
 
@@ -25,20 +26,35 @@ export class PartsComponent implements OnInit {
  @ViewChild(MatSort) sort!: MatSort;
 
  category = 'option2';
+ searchText= "";
 
  searchForm = this.fb.group({
-    category: [''],
+  categoryID: [''],
    
  
   })
 
   constructor(private _partService: PartService, private router: Router, private fb: FormBuilder)
   { 
-    this.getParts();
+    
   }
 
+  categories: Array<Category> = [];
+
   ngOnInit(): void {
+    this.getCategories();
+    this.getParts();
     
+  }
+
+  getCategories()
+  {
+    return this._partService.getCategories().subscribe(
+      result => {
+        this.categories = result;
+        console.log(this.categories)
+      }
+    );
   }
 
  

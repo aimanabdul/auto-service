@@ -16,6 +16,8 @@ export class AddPartComponent implements OnInit {
   constructor(private router: Router, private _partService: PartService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.getCategories();
+
   }
 
   addForm = this.fb.group({
@@ -27,10 +29,15 @@ export class AddPartComponent implements OnInit {
    
   })
 
-  categoriesList?: Array<Category>[]
+  categories?: Array<Category> = []
   getCategories()
   {
-    //api call 
+    return this._partService.getCategories().subscribe(
+      result =>{
+        this.categories = result;
+        console.log(this.categories)
+      }
+    );
 
   }
 

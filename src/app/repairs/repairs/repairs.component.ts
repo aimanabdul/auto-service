@@ -81,9 +81,9 @@ export class RepairsComponent implements OnInit {
     return this._repairService.deleteRepair(customerID, date).subscribe();
   }
 
-  navToEdit(repair: Repair)
+  navToUpdate(repair: Repair)
   {
-    this.router.navigate(["/repairs/add"]);
+    this.router.navigate(["/repairs/update", {repair: JSON.stringify(repair)}], {skipLocationChange: true});
   }
 
 }

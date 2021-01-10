@@ -53,9 +53,9 @@ export class CustomersComponent implements OnInit {
    
   }
 
-  showCustomerDetail(id: string, customer: Customer)
+  showCustomerDetail(id: string, uuid: string , customer: Customer,)
   {
-    this.router.navigate(['/customers/detail', id, {customer: JSON.stringify(customer)}], {skipLocationChange: true});
+    this.router.navigate(['/customers/detail', id, uuid, {customer: JSON.stringify(customer)}], {skipLocationChange: true});
     
   }
 

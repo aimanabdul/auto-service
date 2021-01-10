@@ -10,6 +10,7 @@ import {AddPartComponent} from './parts/add-part/add-part.component';
 import {AddCustomerComponent} from './customers/add-customer/add-customer.component';
 import {CustomerDetailComponent} from './customers/customer-detail/customer-detail.component';
 import {CustomerRepairComponent} from './customers/customer-repair/customer-repair.component';
+import {UpdateRepairComponent} from './repairs/update-repair/update-repair.component';
 
 
 
@@ -24,14 +25,15 @@ const routes: Routes = [
     children: [
       { path: 'overview', component: RepairsComponent},
       { path: 'repair', component: RepairDetailsComponent},
-      { path: 'add', component: AddRepairComponent}
+      { path: 'add/:uuid', component: AddRepairComponent},
+      { path: 'update', component: UpdateRepairComponent},
     ]
   },
   { path: 'customers', 
     children: [
       { path: 'overview', component: CustomersComponent},
       { path: 'add', component: AddCustomerComponent},
-      { path: 'detail/:id', component: CustomerDetailComponent},
+      { path: 'detail/:id/:uuid', component: CustomerDetailComponent},
       { path: 'repair', component: CustomerRepairComponent},
     ]
   },

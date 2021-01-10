@@ -29,6 +29,8 @@ import {AddPartComponent} from '../parts/add-part/add-part.component';
 import {AddCustomerComponent} from '../customers/add-customer/add-customer.component';
 import {CustomerDetailComponent} from '../customers/customer-detail/customer-detail.component';
 import {CustomerRepairComponent} from '../customers/customer-repair/customer-repair.component';
+import { DatePipe } from '@angular/common';
+import {UpdateRepairComponent} from '../repairs/update-repair/update-repair.component';
 
 
 
@@ -43,7 +45,8 @@ import {CustomerRepairComponent} from '../customers/customer-repair/customer-rep
     AddPartComponent, 
     AddCustomerComponent,
     CustomerDetailComponent,
-    CustomerRepairComponent
+    CustomerRepairComponent,
+    UpdateRepairComponent
   
   
   ],
@@ -96,6 +99,7 @@ import {CustomerRepairComponent} from '../customers/customer-repair/customer-rep
     
     
 
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class SharedModule { }

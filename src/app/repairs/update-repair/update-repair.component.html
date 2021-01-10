@@ -1,1 +1,57 @@
-<p>update-repair works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col col-sm-12">
+            <h1 class="d-flex justify-content-center">Nieuwe Reparatie</h1>
+        </div>
+    </div>
+    <!--Add form-->
+    <div class="row mt-3">
+        <form [formGroup]="updateForm" (ngSubmit)="onSubmit()"  class="m-auto">
+            <div class="col col-sm-12 hidden">
+                <mat-form-field appearance="fill">
+                    <mat-label>CustomerID</mat-label>
+                    <input matInput type="text"  formControlName="customerID" [(ngModel)]="repair.customerId" required>
+                </mat-form-field>
+            </div>
+            <div class="col col-sm-12 ">
+                <mat-form-field appearance="fill">
+                    <mat-label>Date</mat-label>
+                    <input matInput type="date" placeholder="19/03/2020" formControlName="date" [(ngModel)]="repair.date" required>
+                </mat-form-field>
+            </div>
+            <div class="col col-sm-12 hidden">
+                <mat-form-field appearance="fill">
+                    <mat-label>Medewerker</mat-label>
+                    <input matInput type="text" formControlName="employeeID" [(ngModel)]="repair.employeeId"  required>
+                </mat-form-field>
+            </div>
+            <div class="col col-sm-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>Reparatie type</mat-label>
+                    <input matInput type="text" formControlName="type" [(ngModel)]="repair.type" required>
+                </mat-form-field>
+            </div>
+            <div class="col col-sm-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>Beschrijving</mat-label>
+                    <textarea matInput type="text" formControlName="description" [(ngModel)]="repair.description" required></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col col-sm-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>price</mat-label>
+                    <input matInput type="number" formControlName="price" [(ngModel)]="repair.price" required>
+                </mat-form-field>
+            </div>
+            <!-- <div class="col col-sm-12">
+                <mat-form-field appearance="fill">
+                    <mat-label>EAN onderdelen</mat-label>
+                    <input matInput type="text" formControlName="eanNumber" required>
+                </mat-form-field>
+            </div> -->
+            <div class="col col-sm-12  d-flex justify-content-center">
+                <button mat-raised-button class="success" type="submit" [disabled]="!updateForm.valid || submitted">Opslaan</button>
+            </div>
+        </form>
+    </div>
+</div>

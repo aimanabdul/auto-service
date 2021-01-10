@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class CustomerRepairComponent implements OnInit {
 
 
-  repair: Repair = new Repair()
+  repair: Repair = new Repair();
 
 
   constructor(private router: Router, private route: ActivatedRoute) 
@@ -22,7 +22,7 @@ export class CustomerRepairComponent implements OnInit {
   ngOnInit(): void 
   {
     this.repair = JSON.parse(this.route.snapshot.params['repair']);
-    console.log(this.repair)
+  
   }
 
 }
